@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=
+comment0.target=background()
+comment1.params=dx\ dy
+comment1.target=void\ scroll(int,\ int)
+comment2.params=x\ y
+comment2.target=int\ getTileAt(int,\ int)
+numComments=3
