@@ -28,7 +28,7 @@ public class Player extends Actor
         int hero_y_px = -level.pos_y + getY();
         int hero_x = hero_x_px/96;
         int hero_y = hero_y_px/96;
-        System.out.println("hero location " + hero_x + ", " + hero_y);
+        
         if (Greenfoot.isKeyDown ("left"))
     {
       level.scroll(10, 0);
@@ -50,6 +50,7 @@ public class Player extends Actor
         }
         whichWalk = (whichWalk + 1) % 4;
         lastWayFacing = "left";
+        System.out.println("hero moved left, Tile: " + hero_x + ", " + hero_y);
     }
   
         else  if (Greenfoot.isKeyDown ("right"))
@@ -74,6 +75,7 @@ public class Player extends Actor
         }
         whichWalk = (whichWalk + 1) % 4;
         lastWayFacing = "right";
+        System.out.println("hero moved right, Tile: " + hero_x + ", " + hero_y);
     }
 
         else if (Greenfoot.isKeyDown("up"))
@@ -98,6 +100,7 @@ public class Player extends Actor
         }    
         whichWalk = (whichWalk + 1) % 4;  
         lastWayFacing = "up";
+        System.out.println("hero moved up, Tile: " + hero_x + ", " + hero_y);
     }
     
         else if (Greenfoot.isKeyDown("down"))
@@ -122,6 +125,7 @@ public class Player extends Actor
         }   
         whichWalk = (whichWalk + 1) % 4;
         lastWayFacing = "down";
+        System.out.println("hero moved down, Tile: " + hero_x + ", " + hero_y);
     } 
     
     else 
