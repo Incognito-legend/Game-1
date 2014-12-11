@@ -195,7 +195,7 @@ public class Player extends Actor
     }
        if (level.getTileAt(hero_x, hero_y) == 1012){
            System.out.println("In Memory of Pluto, the riddle master!");
-        }
+    }
     if(!level.music.isPlaying()) {
         level.track_num++;
         
