@@ -1,6 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
-
+import java.util.Date; // (This plugin is for telling your Current Universal Time)
 public class Player extends Actor
 {
     String baseString = "";
@@ -193,9 +192,12 @@ public class Player extends Actor
         level.addObject(new Smoke_Effect(), 512, 389);
         System.out.println("You have chosen the [ Warrior ] !");
     }
-       if (level.getTileAt(hero_x, hero_y) == 1012){
+       if (level.getTileAt(hero_x, hero_y) == 1012 && (Greenfoot.isKeyDown ("Space"))){
            System.out.println("In Memory of Pluto, the riddle master!");
            System.out.println("You're Standing on a Portal!");
+           Date d = new Date();
+           System.out.println("Your Current Universal Time is...");
+           System.out.println(d);
     }
     if(!level.music.isPlaying()) {
         level.track_num++;

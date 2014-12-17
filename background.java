@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.Date;
 public class background extends World
 {
     GreenfootImage largeImage = new GreenfootImage("map-2.png");
@@ -21,7 +21,12 @@ public class background extends World
         
         getBackground().drawImage(largeImage, -1358, -2045);
         
+        Date d = new Date();
+        
+        System.out.println("Start of Background Fuction!: " + d);
+        
         addObject(new Palladin(), 512, 389);
+        
         music = new GreenfootSound("043 - Silent Ground.wav");
         
         
