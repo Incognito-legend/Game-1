@@ -19,7 +19,6 @@ public class Player extends Actor
    
      String lastWayFacing = "down";
     int whichWalk = 0;
-    
     public void act() 
     {
         background level = (background)this.getWorld();
@@ -27,6 +26,8 @@ public class Player extends Actor
         int hero_y_px = -level.pos_y + getY();
         int hero_x = hero_x_px/96;
         int hero_y = hero_y_px/96;
+        int music = level.track_num;
+        boolean dirtyFlag = true;
         
         if (Greenfoot.isKeyDown ("left"))
     {
@@ -139,8 +140,7 @@ public class Player extends Actor
         } else if (lastWayFacing.equals("right")) {
             setImage(right2);
         }
-            
- 
+        
     } 
     if (level.getTileAt(hero_x, hero_y) == 1003){
         System.out.println("You're at your house!");
@@ -159,7 +159,7 @@ public class Player extends Actor
     }
        if (level.getTileAt(hero_x, hero_y) == 1005){
         System.out.println("Welcome to the Blacksmith!");
-        
+        level.addObject(new Blacksmith(), 498, 489);
         
     }
        if (level.getTileAt(hero_x, hero_y) == 1007 && !(this instanceof hunter)){
@@ -192,14 +192,19 @@ public class Player extends Actor
         level.addObject(new Smoke_Effect(), 512, 389);
         System.out.println("You have chosen the [ Warrior ] !");
     }
-       if (level.getTileAt(hero_x, hero_y) == 1012 && (Greenfoot.isKeyDown ("Space"))){
+       if (level.getTileAt(hero_x, hero_y) == 1012 && (Greenfoot.isKeyDown ("Space") && (dirtyFlag = true))){
            System.out.println("In Memory of Pluto, the riddle master!");
            System.out.println("You're Standing on a Portal!");
            Date d = new Date();
            System.out.println("Your Current Universal Time is...");
            System.out.println(d);
+           dirtyFlag = false;
     }
-    if(!level.music.isPlaying()) {
+       if (!(level.getTileAt(hero_x, hero_y) == 1012)){
+           dirtyFlag = false;
+           
+    }   
+    if (!level.music.isPlaying()) {
         level.track_num++;
         
         if(level.track_num > 100) {
@@ -217,3 +222,4 @@ public class Player extends Actor
     }
 }
 }
+

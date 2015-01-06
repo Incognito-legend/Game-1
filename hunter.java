@@ -18,7 +18,6 @@ public class hunter extends Player
         up3 = baseString + "Lostboys hunter up 3.png";
       
     }
-    
 }
 
 
