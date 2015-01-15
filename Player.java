@@ -19,6 +19,9 @@ public class Player extends Actor
    
      String lastWayFacing = "down";
     int whichWalk = 0;
+    int Class = 4;
+    boolean dirtyFlag = true;
+    boolean dirtyFlag1 = true;
     public void act() 
     {
         background level = (background)this.getWorld();
@@ -27,7 +30,6 @@ public class Player extends Actor
         int hero_x = hero_x_px/96;
         int hero_y = hero_y_px/96;
         int music = level.track_num;
-        boolean dirtyFlag = true;
         
         if (Greenfoot.isKeyDown ("left"))
     {
@@ -157,42 +159,65 @@ public class Player extends Actor
         
         
     }
-       if (level.getTileAt(hero_x, hero_y) == 1005){
+       if (level.getTileAt(hero_x, hero_y) == 1005 && (Greenfoot.isKeyDown("Space") && (dirtyFlag1 == true))){
+        level.removeObject(this);
+        level.addObject(new Blacksmith(), 100, 100);
         System.out.println("Welcome to the Blacksmith!");
-        level.addObject(new Blacksmith(), 498, 489);
-        
+        dirtyFlag1 = false;
+    }
+       if (dirtyFlag1 == false && (Greenfoot.isKeyDown("Space"))){
+    }  if (Class == 1 && (Greenfoot.isKeyDown("Space") && (level.getTileAt(hero_x, hero_y) == 1005))){
+       
+       level.addObject(new hunter(), 512, 389);
+    }  if (Class == 2 && (Greenfoot.isKeyDown("Space") && (level.getTileAt(hero_x, hero_y) == 1005))){
+       
+       level.addObject(new Druid(), 512, 389);
+    }  if (Class == 3 && (Greenfoot.isKeyDown("Space") && (level.getTileAt(hero_x, hero_y) == 1005))){
+       
+       level.addObject(new Mage(), 512, 389);
+    }  if (Class == 4 && (Greenfoot.isKeyDown("Space") && (level.getTileAt(hero_x, hero_y) == 1005))){
+       
+       level.addObject(new Palladin(), 512, 389);
+    }  if (Class == 5 && (Greenfoot.isKeyDown("Space") && (level.getTileAt(hero_x, hero_y) == 1005))){
+       
+       level.addObject(new Warrior(), 512, 389);
     }
        if (level.getTileAt(hero_x, hero_y) == 1007 && !(this instanceof hunter)){
         level.removeObject(this);
         level.addObject(new hunter(), 512, 389);
         level.addObject(new Smoke_Effect(), 512, 389);
         System.out.println("You have chosen the [ Hunter ] !");
+        Class = 1;
     }
        if (level.getTileAt(hero_x, hero_y) == 1008 && !(this instanceof Druid)){
         level.removeObject(this);
         level.addObject(new Druid(), 512, 389);
         level.addObject(new Smoke_Effect(), 512, 389);
         System.out.println("You have chosen the [ Druid ] !");
+        Class = 2;
     }
        if (level.getTileAt(hero_x, hero_y) == 1009 && !(this instanceof Mage)){
         level.removeObject(this);
         level.addObject(new Mage(), 512, 389);
         level.addObject(new Smoke_Effect(), 512, 389);
         System.out.println("You have chosen the [ Mage ] !");
+        Class = 3;
     }
         if (level.getTileAt(hero_x, hero_y) == 1010 && !(this instanceof Palladin)){
         level.removeObject(this);
         level.addObject(new Palladin(), 512, 389);
         level.addObject(new Smoke_Effect(), 512, 389);
         System.out.println("You have chosen the [ Palladin ] !");
+        Class = 4;
     }
        if (level.getTileAt(hero_x, hero_y) == 1011 && !(this instanceof Warrior)){
         level.removeObject(this);
         level.addObject(new Warrior(), 512, 389);
         level.addObject(new Smoke_Effect(), 512, 389);
         System.out.println("You have chosen the [ Warrior ] !");
+        Class = 5;
     }
-       if (level.getTileAt(hero_x, hero_y) == 1012 && (Greenfoot.isKeyDown ("Space") && (dirtyFlag = true))){
+       if (level.getTileAt(hero_x, hero_y) == 1012 && (Greenfoot.isKeyDown ("Space") && (dirtyFlag == true))){
            System.out.println("In Memory of Pluto, the riddle master!");
            System.out.println("You're Standing on a Portal!");
            Date d = new Date();
@@ -201,7 +226,7 @@ public class Player extends Actor
            dirtyFlag = false;
     }
        if (!(level.getTileAt(hero_x, hero_y) == 1012)){
-           dirtyFlag = false;
+           dirtyFlag = true;
            
     }   
     if (!level.music.isPlaying()) {
