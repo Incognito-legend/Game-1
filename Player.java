@@ -16,13 +16,14 @@ public class Player extends Actor
     String up2;
     String up3;
     
-   
-     String lastWayFacing = "down";
-    int whichWalk = 0;
-    int Class = 4;
+    
+    String lastWayFacing = "down";
+    //int Class = 4;
+    int Class;
     boolean dirtyFlag = true;
     boolean dirtyFlag1 = true;
     boolean dirtyFlagMovement = false;
+    int whichWalk = 0;
     public void act() 
     {
         background level = (background)this.getWorld();
@@ -31,6 +32,7 @@ public class Player extends Actor
         int hero_x = hero_x_px/96;
         int hero_y = hero_y_px/96;
         int music = level.track_num;
+        if (Class == 1 || Class == 2 || Class == 3 || Class == 4 || Class == 5) {Class = 4;}
 //start of movement        
   if (Greenfoot.isKeyDown ("left")){
       level.scroll(10, 0);
@@ -133,7 +135,7 @@ public class Player extends Actor
     if (level.getTileAt(hero_x, hero_y) == 1005 && (dirtyFlag1 == true)){
         //level.removeObject(this);
         //level.addObject(new Blacksmith(), 100, 100);
-        System.out.println("Welcome to the Blacksmith!");
+        System.out.println("Welcome to the Blacksmith! (" + Class + ")");
         dirtyFlag1 = false;
         //hi
     }
