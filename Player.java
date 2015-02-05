@@ -132,34 +132,32 @@ public class Player extends Actor
     } 
     else if (Greenfoot.isKeyDown("Space"))
     {
-    if (level.getTileAt(hero_x, hero_y) == 1005 && (dirtyFlag1 == true)){
-        //level.removeObject(this);
-        //level.addObject(new Blacksmith(), 100, 100);
-        System.out.println("Welcome to the Blacksmith! (" + Class + ")");
-        dirtyFlag1 = false;
-        //hi
-    }
-       if (dirtyFlag1 == false && (Greenfoot.isKeyDown("Space"))){
-    }  if (Class == 1 && (Greenfoot.isKeyDown("Space") && (level.getTileAt(hero_x, hero_y) == 1005))){
-       System.out.println("Player class: Hunter : is in Blacksmith");
+    if (dirtyFlag1 == false && (Greenfoot.isKeyDown("Space"))){
+       if (Class == 1 && (Greenfoot.isKeyDown("Space") && (level.getTileAt(hero_x, hero_y) == 1005))){
+        System.out.println("Player class: Hunter : is in Blacksmith");
        //level.addObject(new hunter(), 512, 389);
-    }  if (Class == 2 && (Greenfoot.isKeyDown("Space") && (level.getTileAt(hero_x, hero_y) == 1005))){
+       }  
+       if (Class == 2 && (Greenfoot.isKeyDown("Space") && (level.getTileAt(hero_x, hero_y) == 1005))){
        System.out.println("Player class: Druid : is in Blacksmith");
        //level.addObject(new Druid(), 512, 389);
-    }  if (Class == 3 && (Greenfoot.isKeyDown("Space") && (level.getTileAt(hero_x, hero_y) == 1005))){
+       }
+       if (Class == 3 && (Greenfoot.isKeyDown("Space") && (level.getTileAt(hero_x, hero_y) == 1005))){
        System.out.println("Player class: Mage : is in Blacksmith");
        //level.addObject(new Mage(), 512, 389);
-    }  if (Class == 4 && (Greenfoot.isKeyDown("Space") && (level.getTileAt(hero_x, hero_y) == 1005))){
+       }
+       if (Class == 4 && (Greenfoot.isKeyDown("Space") && (level.getTileAt(hero_x, hero_y) == 1005))){
        System.out.println("Player class: Paladin : is in Blacksmith");
        //level.addObject(new Palladin(), 512, 389);
-    }  if (Class == 5 && (Greenfoot.isKeyDown("Space") && (level.getTileAt(hero_x, hero_y) == 1005))){
+       }
+       if (Class == 5 && (Greenfoot.isKeyDown("Space") && (level.getTileAt(hero_x, hero_y) == 1005))){
        System.out.println("Player class: Warrior : is in Blacksmith");
        //level.addObject(new Warrior(), 512, 389);
+       }
+     }
     }
        //end of Artificial movement
     else 
     {
-        
         if (lastWayFacing.equals("up")){
             setImage(up2);
         } else if (lastWayFacing.equals("down")){
@@ -171,60 +169,76 @@ public class Player extends Actor
         }
         
     }
-}
+
 //end of Movement
 //Beginning of Special Tiles Check
     dirtyFlagMovement = true;
     if (dirtyFlagMovement){
-    if (level.getTileAt(hero_x, hero_y) == 1003){
-        System.out.println("You're at your house!");
-        
-        
-    }
-       if (level.getTileAt(hero_x, hero_y) == 1004){
-        System.out.println("You're at the Arena!");
-        
-        
-    }
-       if (level.getTileAt(hero_x, hero_y) == 1006){
-        System.out.println("Welcome to the Shop!");
-        
-        
-    }
-       if (level.getTileAt(hero_x, hero_y) == 1007 && !(this instanceof hunter)){
-        level.removeObject(this);
-        level.addObject(new hunter(), 512, 389);
-        level.addObject(new Smoke_Effect(), 512, 389);
-        System.out.println("You have chosen the [ Hunter ] !");
-        Class = 1;
-    }
-       if (level.getTileAt(hero_x, hero_y) == 1008 && !(this instanceof Druid)){
-        level.removeObject(this);
-        level.addObject(new Druid(), 512, 389);
-        level.addObject(new Smoke_Effect(), 512, 389);
-        System.out.println("You have chosen the [ Druid ] !");
-        Class = 2;
-    }
-       if (level.getTileAt(hero_x, hero_y) == 1009 && !(this instanceof Mage)){
-        level.removeObject(this);
-        level.addObject(new Mage(), 512, 389);
-        level.addObject(new Smoke_Effect(), 512, 389);
-        System.out.println("You have chosen the [ Mage ] !");
-        Class = 3;
-    }
-        if (level.getTileAt(hero_x, hero_y) == 1010 && !(this instanceof Palladin)){
-        level.removeObject(this);
-        level.addObject(new Palladin(), 512, 389);
-        level.addObject(new Smoke_Effect(), 512, 389);
-        System.out.println("You have chosen the [ Palladin ] !");
-        Class = 4;
-    }
-       if (level.getTileAt(hero_x, hero_y) == 1011 && !(this instanceof Warrior)){
-        level.removeObject(this);
-        level.addObject(new Warrior(), 512, 389);
-        level.addObject(new Smoke_Effect(), 512, 389);
-        System.out.println("You have chosen the [ Warrior ] !");
-        Class = 5;
+        switch (level.getTileAt(hero_x, hero_y)) {
+          case 1003:
+            System.out.println("You're at your house!");
+          break;
+          case 1004: 
+            System.out.println("You're at the Arena!");
+          break;
+          case 1005:
+             if (dirtyFlag1 == true) {
+               //level.removeObject(this);
+               //level.addObject(new Blacksmith(), 100, 100);
+               System.out.println("Welcome to the Blacksmith! (" + Class + ")");
+               dirtyFlag1 = false;
+               //hi
+             }
+          break;
+          case 1006:
+             System.out.println("Welcome to the Shop!");
+          break;
+          case 1007:        
+             if (!(this instanceof hunter)){
+               level.removeObject(this);
+               level.addObject(new hunter(), 512, 389);
+               level.addObject(new Smoke_Effect(), 512, 389);
+               System.out.println("You have chosen the [ Hunter ] !");
+               Class = 1;
+             }
+          break;
+          case 1008:
+             if (!(this instanceof Druid)){
+               level.removeObject(this);
+               level.addObject(new Druid(), 512, 389);
+               level.addObject(new Smoke_Effect(), 512, 389);
+               System.out.println("You have chosen the [ Druid ] !");
+               Class = 2;
+             }
+          break;
+          case 1009:
+             if (!(this instanceof Mage)){
+               level.removeObject(this);
+               level.addObject(new Mage(), 512, 389);
+               level.addObject(new Smoke_Effect(), 512, 389);
+               System.out.println("You have chosen the [ Mage ] !");
+               Class = 3;
+             }
+          break;
+          case 1010:
+             if (!(this instanceof Palladin)){
+               level.removeObject(this);
+               level.addObject(new Palladin(), 512, 389);
+               level.addObject(new Smoke_Effect(), 512, 389);
+               System.out.println("You have chosen the [ Palladin ] !");
+               Class = 4;
+             }
+          break;
+          case 1011:
+             if (!(this instanceof Warrior)){
+               level.removeObject(this);
+               level.addObject(new Warrior(), 512, 389);
+               level.addObject(new Smoke_Effect(), 512, 389);
+               System.out.println("You have chosen the [ Warrior ] !");
+               Class = 5;
+             }
+          
+        }
     }
     if (!level.music.isPlaying()) {
         level.track_num++;
@@ -244,7 +258,7 @@ public class Player extends Actor
     }
 }
 }
-}
+
     //TB revisited later   
     //if (level.getTileAt(hero_x, hero_y) == 1012 && (Greenfoot.isKeyDown ("Space") && (dirtyFlag == true))){
            //System.out.println("In Memory of Pluto, the riddle master!");
