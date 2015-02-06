@@ -18,8 +18,7 @@ public class Player extends Actor
     
     
     String lastWayFacing = "down";
-    //int Class = 4;
-    int Class;
+    int Class = 4;
     boolean dirtyFlag = true;
     boolean dirtyFlag1 = true;
     boolean dirtyFlagMovement = false;
@@ -32,7 +31,8 @@ public class Player extends Actor
         int hero_x = hero_x_px/96;
         int hero_y = hero_y_px/96;
         int music = level.track_num;
-        if (Class == 1 || Class == 2 || Class == 3 || Class == 4 || Class == 5) {Class = 4;}
+        
+        
 //start of movement        
   if (Greenfoot.isKeyDown ("left")){
       level.scroll(10, 0);
@@ -130,31 +130,6 @@ public class Player extends Actor
     //end of Player movement
     //Beginning of Artificial movement
     } 
-    else if (Greenfoot.isKeyDown("Space"))
-    {
-    if (dirtyFlag1 == false && (Greenfoot.isKeyDown("Space"))){
-       if (Class == 1 && (Greenfoot.isKeyDown("Space") && (level.getTileAt(hero_x, hero_y) == 1005))){
-        System.out.println("Player class: Hunter : is in Blacksmith");
-       //level.addObject(new hunter(), 512, 389);
-       }  
-       if (Class == 2 && (Greenfoot.isKeyDown("Space") && (level.getTileAt(hero_x, hero_y) == 1005))){
-       System.out.println("Player class: Druid : is in Blacksmith");
-       //level.addObject(new Druid(), 512, 389);
-       }
-       if (Class == 3 && (Greenfoot.isKeyDown("Space") && (level.getTileAt(hero_x, hero_y) == 1005))){
-       System.out.println("Player class: Mage : is in Blacksmith");
-       //level.addObject(new Mage(), 512, 389);
-       }
-       if (Class == 4 && (Greenfoot.isKeyDown("Space") && (level.getTileAt(hero_x, hero_y) == 1005))){
-       System.out.println("Player class: Paladin : is in Blacksmith");
-       //level.addObject(new Palladin(), 512, 389);
-       }
-       if (Class == 5 && (Greenfoot.isKeyDown("Space") && (level.getTileAt(hero_x, hero_y) == 1005))){
-       System.out.println("Player class: Warrior : is in Blacksmith");
-       //level.addObject(new Warrior(), 512, 389);
-       }
-     }
-    }
        //end of Artificial movement
     else 
     {
@@ -175,6 +150,9 @@ public class Player extends Actor
     dirtyFlagMovement = true;
     if (dirtyFlagMovement){
         switch (level.getTileAt(hero_x, hero_y)) {
+          case 1002:
+            dirtyFlag1 = true;
+          break;
           case 1003:
             System.out.println("You're at your house!");
           break;
@@ -198,17 +176,19 @@ public class Player extends Actor
                level.removeObject(this);
                level.addObject(new hunter(), 512, 389);
                level.addObject(new Smoke_Effect(), 512, 389);
-               System.out.println("You have chosen the [ Hunter ] !");
+               System.out.println("Changing From Class # (" + Class + ")");
                Class = 1;
+               System.out.println("You have chosen the [ Hunter ] ! (" + Class + ")");
              }
           break;
           case 1008:
              if (!(this instanceof Druid)){
+               System.out.println("Changing From Class # (" + Class + ")");
                level.removeObject(this);
                level.addObject(new Druid(), 512, 389);
                level.addObject(new Smoke_Effect(), 512, 389);
-               System.out.println("You have chosen the [ Druid ] !");
                Class = 2;
+               System.out.println("You have chosen the [ Druid ] ! (" + Class + ")");
              }
           break;
           case 1009:
@@ -258,7 +238,8 @@ public class Player extends Actor
     }
 }
 }
-
+    //block#1001 = wall
+    //block#1002 = floor
     //TB revisited later   
     //if (level.getTileAt(hero_x, hero_y) == 1012 && (Greenfoot.isKeyDown ("Space") && (dirtyFlag == true))){
            //System.out.println("In Memory of Pluto, the riddle master!");
