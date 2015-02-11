@@ -19,13 +19,23 @@ public class Player extends Actor
     
     String lastWayFacing = "down";
     int Class = 4;
-    boolean dirtyFlag = true;
-    boolean dirtyFlag1 = true;
     boolean dirtyFlagMovement = false;
     int whichWalk = 0;
     public void act() 
     {
         background level = (background)this.getWorld();
+        if (this instanceof hunter){
+            Class = 1;
+        }else if (this instanceof Druid){
+            Class = 2;
+        }else if (this instanceof Mage){
+            Class = 3;
+        }else if (this instanceof Palladin){
+            Class = 4;
+        }else if (this instanceof Warrior){
+            Class = 5;
+        }
+        
         int hero_x_px = -level.pos_x + getX();
         int hero_y_px = -level.pos_y + getY();
         int hero_x = hero_x_px/96;
@@ -35,7 +45,8 @@ public class Player extends Actor
         
 //start of movement        
   if (Greenfoot.isKeyDown ("left")){
-      level.scroll(10, 0);
+       dirtyFlagMovement = true;
+       level.scroll(10, 0);
        hero_x_px = -level.pos_x + getX()-50;
        hero_y_px = -level.pos_y + getY();
        hero_x = hero_x_px/96;
@@ -58,8 +69,9 @@ public class Player extends Actor
     }
         else  if (Greenfoot.isKeyDown ("right"))
     {
-        background x = (background)this.getWorld();
-      x.scroll(-10, 0);
+       dirtyFlagMovement = true;
+       background x = (background)this.getWorld();
+       x.scroll(-10, 0);
        hero_x_px = -level.pos_x + getX()+50;
        hero_y_px = -level.pos_y + getY();
        hero_x = hero_x_px/96;
@@ -82,8 +94,9 @@ public class Player extends Actor
     }
         else if (Greenfoot.isKeyDown("up"))
     {
-        background x = (background)this.getWorld();
-      x.scroll(0, 10);
+       dirtyFlagMovement = true;
+       background x = (background)this.getWorld();
+       x.scroll(0, 10);
        hero_x_px = -level.pos_x + getX();
        hero_y_px = -level.pos_y + getY();
        hero_x = hero_x_px/96;
@@ -106,7 +119,8 @@ public class Player extends Actor
     }    
         else if (Greenfoot.isKeyDown("down"))
     {   
-        background x = (background)this.getWorld();
+       dirtyFlagMovement = true;
+       background x = (background)this.getWorld();
        x.scroll(0, -10);
        hero_x_px = -level.pos_x + getX();
        hero_y_px = -level.pos_y + getY()+40;
@@ -147,12 +161,8 @@ public class Player extends Actor
 
 //end of Movement
 //Beginning of Special Tiles Check
-    dirtyFlagMovement = true;
     if (dirtyFlagMovement){
         switch (level.getTileAt(hero_x, hero_y)) {
-          case 1002:
-            dirtyFlag1 = true;
-          break;
           case 1003:
             System.out.println("You're at your house!");
           break;
@@ -160,12 +170,9 @@ public class Player extends Actor
             System.out.println("You're at the Arena!");
           break;
           case 1005:
-             if (dirtyFlag1 == true) {
-               //level.removeObject(this);
-               //level.addObject(new Blacksmith(), 100, 100);
-               System.out.println("Welcome to the Blacksmith! (" + Class + ")");
-               dirtyFlag1 = false;
-               //hi
+             System.out.println("Hit Blacksmith_Tile (" + Class + ")");
+             if (Greenfoot.isKeyDown ("Space")){
+             System.out.println("Spacebar Pressed in Blacksmith");
              }
           break;
           case 1006:
@@ -217,7 +224,7 @@ public class Player extends Actor
                System.out.println("You have chosen the [ Warrior ] !");
                Class = 5;
              }
-          
+          //default: {System.out.println("regular tile");}
         }
     }
     if (!level.music.isPlaying()) {
@@ -241,13 +248,6 @@ public class Player extends Actor
     //block#1001 = wall
     //block#1002 = floor
     //TB revisited later   
-    //if (level.getTileAt(hero_x, hero_y) == 1012 && (Greenfoot.isKeyDown ("Space") && (dirtyFlag == true))){
-           //System.out.println("In Memory of Pluto, the riddle master!");
-           //System.out.println("You're Standing on a Portal!");
-           //Date d = new Date();
-           //System.out.println("Your Current Universal Time is...");
-           //System.out.println(d);
-           //dirtyFlag = false;
     //}
     //if (!(level.getTileAt(hero_x, hero_y) == 1012)){
            //dirtyFlag = true;
