@@ -20,9 +20,12 @@ public class Player extends Actor
     String lastWayFacing = "down";
     int Class = 4;
     boolean dirtyFlagMovement = false;
+    boolean dirtyFlagBlacksmith = false;
     int whichWalk = 0;
     public void act() 
     {
+        dirtyFlagMovement = false;
+
         background level = (background)this.getWorld();
         if (this instanceof hunter){
             Class = 1;
@@ -46,6 +49,7 @@ public class Player extends Actor
 //start of movement        
   if (Greenfoot.isKeyDown ("left")){
        dirtyFlagMovement = true;
+       
        level.scroll(10, 0);
        hero_x_px = -level.pos_x + getX()-50;
        hero_y_px = -level.pos_y + getY();
@@ -70,6 +74,7 @@ public class Player extends Actor
         else  if (Greenfoot.isKeyDown ("right"))
     {
        dirtyFlagMovement = true;
+       
        background x = (background)this.getWorld();
        x.scroll(-10, 0);
        hero_x_px = -level.pos_x + getX()+50;
@@ -171,9 +176,7 @@ public class Player extends Actor
           break;
           case 1005:
              System.out.println("Hit Blacksmith_Tile (" + Class + ")");
-             if (Greenfoot.isKeyDown ("Space")){
-             System.out.println("Spacebar Pressed in Blacksmith");
-             }
+             dirtyFlagBlacksmith = true;
           break;
           case 1006:
              System.out.println("Welcome to the Shop!");
@@ -227,6 +230,19 @@ public class Player extends Actor
           //default: {System.out.println("regular tile");}
         }
     }
+    if ((!(dirtyFlagMovement))) {
+        switch (level.getTileAt(hero_x, hero_y)) {
+          case 1005:
+             if (dirtyFlagBlacksmith) {
+                 System.out.println("Hit Blacksmith_Tile (" + Class + ")");
+                 dirtyFlagBlacksmith = false;
+             }
+             if (Greenfoot.isKeyDown ("Space")){
+               System.out.println("Spacebar Pressed in Blacksmith");
+             }
+          break;
+          }
+        }
     if (!level.music.isPlaying()) {
         level.track_num++;
         
@@ -243,8 +259,9 @@ public class Player extends Actor
         }
             level.music.play();
     }
+  }
 }
-}
+
     //block#1001 = wall
     //block#1002 = floor
     //TB revisited later   
