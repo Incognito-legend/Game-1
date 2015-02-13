@@ -239,6 +239,7 @@ public class Player extends Actor
              }
              if (Greenfoot.isKeyDown ("Space")){
                System.out.println("Spacebar Pressed in Blacksmith");
+               level.addObject(new blacksmith_Message(), 512, 389);
              }
           break;
           }
