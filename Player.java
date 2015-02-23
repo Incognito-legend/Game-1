@@ -15,15 +15,33 @@ public class Player extends Actor
     String up1;
     String up2;
     String up3;
-    
+// {[( start )]} of String group: "int Confirmation_Msg Group".
+    String Blacksmith_Confirmation_Msg;
+//--------------------------------------
+    String Shop_Confirmation_Msg;
+//--------------------------------------
+    String Arena_Confirmation_Msg;
+//--------------------------------------
+    String Home_Confirmation_Msg;
+// {[( end )]} of String group: "int Confirmation_Msg Group".
     
     String lastWayFacing = "down";
+    
     int Class = 4;
+    boolean dirtyFlag_Player_Input = true;
     boolean dirtyFlagMovement = false;
     boolean dirtyFlagBlacksmith = false;
     int whichWalk = 0;
+    int Confirmation_Msg_Type;
     public void act() 
     {
+        
+        if (dirtyFlag_Player_Input){
+            
+        }
+        
+        if (!(dirtyFlag_Player_Input)){
+        
         dirtyFlagMovement = false;
 
         background level = (background)this.getWorld();
@@ -51,6 +69,7 @@ public class Player extends Actor
        dirtyFlagMovement = true;
        
        level.scroll(10, 0);
+       
        hero_x_px = -level.pos_x + getX()-50;
        hero_y_px = -level.pos_y + getY();
        hero_x = hero_x_px/96;
@@ -58,6 +77,7 @@ public class Player extends Actor
       if (level.getTileAt (hero_x, hero_y) == 1001){
           level.scroll(-10, 0);
       }
+      
         if (whichWalk == 0) {
             setImage(left1);
         } else if (whichWalk == 1) {
@@ -70,6 +90,7 @@ public class Player extends Actor
         whichWalk = (whichWalk + 1) % 4;
         lastWayFacing = "left";
         System.out.println("hero moved left, Tile: " + hero_x + ", " + hero_y);
+        System.out.println(level.pos_x + ", " + level.pos_y);
     }
         else  if (Greenfoot.isKeyDown ("right"))
     {
@@ -84,6 +105,7 @@ public class Player extends Actor
       if (level.getTileAt (hero_x, hero_y) == 1001){
           level.scroll(10, 0);
         }
+        
         if (whichWalk == 0) {
             setImage(right1);
         } else if (whichWalk == 1) {
@@ -96,6 +118,7 @@ public class Player extends Actor
         whichWalk = (whichWalk + 1) % 4;
         lastWayFacing = "right";
         System.out.println("hero moved right, Tile: " + hero_x + ", " + hero_y);
+        System.out.println(level.pos_x + ", " + level.pos_y);
     }
         else if (Greenfoot.isKeyDown("up"))
     {
@@ -109,6 +132,7 @@ public class Player extends Actor
       if (level.getTileAt (hero_x, hero_y) == 1001){
           level.scroll(0, -10);
         }
+        
         if (whichWalk == 0) {
             setImage(up1);
         } else if (whichWalk == 1) {
@@ -121,6 +145,7 @@ public class Player extends Actor
         whichWalk = (whichWalk + 1) % 4;  
         lastWayFacing = "up";
         System.out.println("hero moved up, Tile: " + hero_x + ", " + hero_y);
+        System.out.println(level.pos_x + ", " + level.pos_y);
     }    
         else if (Greenfoot.isKeyDown("down"))
     {   
@@ -134,6 +159,7 @@ public class Player extends Actor
       if (level.getTileAt (hero_x, hero_y) == 1001){
           level.scroll(0, 10);
         }
+        
         if (whichWalk == 0) {
             setImage(down1);
         } else if (whichWalk == 1) {
@@ -146,6 +172,7 @@ public class Player extends Actor
         whichWalk = (whichWalk + 1) % 4;
         lastWayFacing = "down";
         System.out.println("hero moved down, Tile: " + hero_x + ", " + hero_y);
+        System.out.println(level.pos_x + ", " + level.pos_y);
     //end of Player movement
     //Beginning of Artificial movement
     } 
@@ -167,20 +194,22 @@ public class Player extends Actor
 //end of Movement
 //Beginning of Special Tiles Check
     if (dirtyFlagMovement){
+        
         switch (level.getTileAt(hero_x, hero_y)) {
+            
           case 1003:
             System.out.println("You're at your house!");
-          break;
+          break;          
           case 1004: 
             System.out.println("You're at the Arena!");
           break;
           case 1005:
              System.out.println("Hit Blacksmith_Tile (" + Class + ")");
              dirtyFlagBlacksmith = true;
-          break;
+          break;          
           case 1006:
              System.out.println("Welcome to the Shop!");
-          break;
+          break;          
           case 1007:        
              if (!(this instanceof hunter)){
                level.removeObject(this);
@@ -190,7 +219,7 @@ public class Player extends Actor
                Class = 1;
                System.out.println("You have chosen the [ Hunter ] ! (" + Class + ")");
              }
-          break;
+          break;          
           case 1008:
              if (!(this instanceof Druid)){
                System.out.println("Changing From Class # (" + Class + ")");
@@ -200,7 +229,7 @@ public class Player extends Actor
                Class = 2;
                System.out.println("You have chosen the [ Druid ] ! (" + Class + ")");
              }
-          break;
+          break;          
           case 1009:
              if (!(this instanceof Mage)){
                level.removeObject(this);
@@ -227,23 +256,34 @@ public class Player extends Actor
                System.out.println("You have chosen the [ Warrior ] !");
                Class = 5;
              }
-          //default: {System.out.println("regular tile");}
+          break;
+          
         }
+        
     }
+    
     if ((!(dirtyFlagMovement))) {
+        
         switch (level.getTileAt(hero_x, hero_y)) {
+          
           case 1005:
              if (dirtyFlagBlacksmith) {
                  System.out.println("Hit Blacksmith_Tile (" + Class + ")");
                  dirtyFlagBlacksmith = false;
              }
+             
              if (Greenfoot.isKeyDown ("Space")){
                System.out.println("Spacebar Pressed in Blacksmith");
                level.addObject(new blacksmith_Message(), 512, 389);
              }
           break;
+      
           }
+          
         }
+        
+
+    
     if (!level.music.isPlaying()) {
         level.track_num++;
         
@@ -260,9 +300,11 @@ public class Player extends Actor
         }
             level.music.play();
     }
-  }
-}
 
+//if ((( - NOT - ))) dirtyFlag_Player_Input statement "End"
+}
+}
+}
     //block#1001 = wall
     //block#1002 = floor
     //TB revisited later   
