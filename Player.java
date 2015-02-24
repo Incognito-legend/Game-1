@@ -37,10 +37,19 @@ public class Player extends Actor
     {
         
         if (dirtyFlag_Player_Input){
-            
-        }
+            //this is for the start of the entire code, adds first confirmation message (class selection)
+            System.out.println("--- CLASS SELECTION ---");
+            System.out.println("Choose your desired class!");
+            System.out.println("key 1:" + " Hunter");
+            System.out.println("key 2:" + " Druid");
+            System.out.println("key 3:" + " Mage");
+            System.out.println("key 4:" + " Palladin");
+            System.out.println("key 5:" + " Warrior");
+                
         
-        if (!(dirtyFlag_Player_Input)){
+    }
+
+        else if (!(dirtyFlag_Player_Input)){
         
         dirtyFlagMovement = false;
 
@@ -62,8 +71,7 @@ public class Player extends Actor
         int hero_x = hero_x_px/96;
         int hero_y = hero_y_px/96;
         int music = level.track_num;
-        
-        
+                
 //start of movement        
   if (Greenfoot.isKeyDown ("left")){
        dirtyFlagMovement = true;
