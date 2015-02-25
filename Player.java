@@ -29,6 +29,8 @@ public class Player extends Actor
     
     int Class = 4;
     boolean dirtyFlag_Player_Input = true;
+    boolean dirtyFlag_PI_Msg1 = true;
+    boolean dirtyFlag_PI_Class_Confirmation_Msg = false;
     boolean dirtyFlagMovement = false;
     boolean dirtyFlagBlacksmith = false;
     int whichWalk = 0;
@@ -37,7 +39,10 @@ public class Player extends Actor
     {
         
         if (dirtyFlag_Player_Input){
+        background level = (background)this.getWorld();
             //this is for the start of the entire code, adds first confirmation message (class selection)
+            if (dirtyFlag_PI_Msg1){
+            
             System.out.println("--- CLASS SELECTION ---");
             System.out.println("Choose your desired class!");
             System.out.println("key 1:" + " Hunter");
@@ -45,9 +50,83 @@ public class Player extends Actor
             System.out.println("key 3:" + " Mage");
             System.out.println("key 4:" + " Palladin");
             System.out.println("key 5:" + " Warrior");
-                
-        
+            
+            dirtyFlag_PI_Msg1 = false;
+            
+        } 
+        if (this instanceof hunter){
+            Class = 1;
+        }else if (this instanceof Druid){
+            Class = 2;
+        }else if (this instanceof Mage){
+            Class = 3;
+        }else if (this instanceof Palladin){
+            Class = 4;
+        }else if (this instanceof Warrior){
+            Class = 5;
+        }
+        if ((Greenfoot.isKeyDown ("1")) && !(dirtyFlag_PI_Class_Confirmation_Msg)){
+            
+               if (!(this instanceof hunter)){
+               level.removeObject(this);
+               level.addObject(new hunter(), 512, 389);
+               level.addObject(new Smoke_Effect(), 512, 389);
+               Class = 1;
+               System.out.println("You have chosen the [ Hunter ] ! (" + Class + ")");
+        }              
+      
     }
+        
+        if (Greenfoot.isKeyDown ("2")){ 
+        
+               if (!(this instanceof Druid)){
+               level.removeObject(this);
+               level.addObject(new Druid(), 512, 389);
+               level.addObject(new Smoke_Effect(), 512, 389);
+               Class = 2;
+               System.out.println("You have chosen the [ Druid ] ! (" + Class + ")");
+        }
+      
+    }       
+        
+        if (Greenfoot.isKeyDown ("3")){ 
+             
+               if (!(this instanceof Mage)){
+               level.removeObject(this);
+               level.addObject(new Mage(), 512, 389);
+               level.addObject(new Smoke_Effect(), 512, 389);
+               System.out.println("You have chosen the [ Mage ] ! (" + Class + ")");
+               Class = 3;
+        }       
+            
+    }        
+        
+        if (Greenfoot.isKeyDown ("4")){          
+        
+               if (!(this instanceof Palladin)){
+               level.removeObject(this);
+               level.addObject(new Palladin(), 512, 389);
+               level.addObject(new Smoke_Effect(), 512, 389);
+               System.out.println("You have chosen the [ Palladin ] ! (" + Class + ")");
+               Class = 4;
+      }      
+    
+    }
+        
+        if (Greenfoot.isKeyDown ("5")){         
+     
+               if (!(this instanceof Warrior)){
+               level.removeObject(this);
+               level.addObject(new Warrior(), 512, 389);
+               level.addObject(new Smoke_Effect(), 512, 389);
+               System.out.println("You have chosen the [ Warrior ] ! (" + Class + ")");
+               Class = 5;
+             }             
+            
+    }
+    
+     
+}
 
         else if (!(dirtyFlag_Player_Input)){
         
