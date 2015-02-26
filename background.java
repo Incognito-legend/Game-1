@@ -25,11 +25,9 @@ public class background extends World
         
         System.out.println("Start of Background Fuction!: " + d);
         
-        addObject(new Palladin(), 512, 389);
+        addObject(new hunter(), 512, 389);
         
         music = new GreenfootSound("043 - Silent Ground.wav");
-        
-        
         
        // addObject(new Level_1(), 600, -9000);
     }

@@ -14,8 +14,4 @@ public class Level extends Actor
             image.scale(image.getWidth()*6,image.getHeight()*6);
             setImage(image);
         }
-    public void act() 
-    {
-        
-    }    
 }

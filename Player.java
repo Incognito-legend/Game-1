@@ -33,13 +33,14 @@ public class Player extends Actor
     boolean dirtyFlag_PI_Class_Confirmation_Msg = false;
     boolean dirtyFlagMovement = false;
     boolean dirtyFlagBlacksmith = false;
+    boolean playerClass_dirtyFlag = false;
     int whichWalk = 0;
     int Confirmation_Msg_Type;
     public void act() 
     {
-        
+
         if (dirtyFlag_Player_Input){
-        background level = (background)this.getWorld();
+            background level = (background)this.getWorld();
             //this is for the start of the entire code, adds first confirmation message (class selection)
             if (dirtyFlag_PI_Msg1){
             
@@ -65,63 +66,68 @@ public class Player extends Actor
         }else if (this instanceof Warrior){
             Class = 5;
         }
-        if ((Greenfoot.isKeyDown ("1")) && !(dirtyFlag_PI_Class_Confirmation_Msg)){
+        if ((Greenfoot.isKeyDown ("1")) && !(dirtyFlag_PI_Class_Confirmation_Msg) && !(Class == 1) && !(playerClass_dirtyFlag)){
             
                if (!(this instanceof hunter)){
-               level.removeObject(this);
+
                level.addObject(new hunter(), 512, 389);
                level.addObject(new Smoke_Effect(), 512, 389);
                Class = 1;
                System.out.println("You have chosen the [ Hunter ] ! (" + Class + ")");
+               playerClass_dirtyFlag = true;
         }              
       
     }
         
-        if (Greenfoot.isKeyDown ("2")){ 
+        if ((Greenfoot.isKeyDown ("2")) && !(dirtyFlag_PI_Class_Confirmation_Msg) && !(Class == 2) && !(playerClass_dirtyFlag)){ 
         
                if (!(this instanceof Druid)){
-               level.removeObject(this);
+
                level.addObject(new Druid(), 512, 389);
                level.addObject(new Smoke_Effect(), 512, 389);
                Class = 2;
                System.out.println("You have chosen the [ Druid ] ! (" + Class + ")");
+               playerClass_dirtyFlag = true;
         }
       
     }       
         
-        if (Greenfoot.isKeyDown ("3")){ 
+        if ((Greenfoot.isKeyDown ("3")) && !(dirtyFlag_PI_Class_Confirmation_Msg) && !(Class == 1) && !(playerClass_dirtyFlag)){ 
              
                if (!(this instanceof Mage)){
-               level.removeObject(this);
+ 
                level.addObject(new Mage(), 512, 389);
                level.addObject(new Smoke_Effect(), 512, 389);
-               System.out.println("You have chosen the [ Mage ] ! (" + Class + ")");
                Class = 3;
+               System.out.println("You have chosen the [ Mage ] ! (" + Class + ")");
+               playerClass_dirtyFlag = true;
         }       
             
     }        
         
-        if (Greenfoot.isKeyDown ("4")){          
+        if ((Greenfoot.isKeyDown ("4")) && !(dirtyFlag_PI_Class_Confirmation_Msg) && !(Class == 1) && !(playerClass_dirtyFlag)){          
         
                if (!(this instanceof Palladin)){
-               level.removeObject(this);
+
                level.addObject(new Palladin(), 512, 389);
                level.addObject(new Smoke_Effect(), 512, 389);
-               System.out.println("You have chosen the [ Palladin ] ! (" + Class + ")");
                Class = 4;
-      }      
+               System.out.println("You have chosen the [ Palladin ] ! (" + Class + ")");
+               playerClass_dirtyFlag = true;
+        }      
     
     }
         
-        if (Greenfoot.isKeyDown ("5")){         
+        if ((Greenfoot.isKeyDown ("5")) && !(dirtyFlag_PI_Class_Confirmation_Msg) && !(Class == 1) && !(playerClass_dirtyFlag)){         
      
                if (!(this instanceof Warrior)){
-               level.removeObject(this);
+
                level.addObject(new Warrior(), 512, 389);
                level.addObject(new Smoke_Effect(), 512, 389);
                System.out.println("You have chosen the [ Warrior ] ! (" + Class + ")");
                Class = 5;
-             }             
+               playerClass_dirtyFlag = true;
+        }             
             
     }
     
