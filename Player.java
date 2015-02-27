@@ -27,29 +27,69 @@ public class Player extends Actor
     
     String lastWayFacing = "down";
     
-    int Class = 4;
     boolean dirtyFlag_Player_Input = true;
+    
     boolean dirtyFlag_PI_Msg1 = true;
+    
     boolean dirtyFlag_PI_Class_Confirmation_Msg = false;
+    
     boolean dirtyFlagMovement = false;
+    
     boolean dirtyFlagBlacksmith = false;
+    
     boolean playerClass_dirtyFlag = false;
+    
     int whichWalk = 0;
+    
     int Confirmation_Msg_Type;
+    
+    int Class = 4;
+    
     public void act() 
     {
+    background level = (background)this.getWorld();
+//    if (!(this instanceof hunter))
+//-----------------------------------------------------
+    if (this instanceof hunter){ 
+Class = 1;
+System.out.println("Class:[ Hunter ] ! (" + Class + ")");
 
-        if (dirtyFlag_Player_Input){
-            background level = (background)this.getWorld();
+}    else if (this instanceof Druid){
+Class = 2;
+System.out.println("Class:[ Druid ] ! (" + Class + ")");
+}    else if (this instanceof Mage){
+Class = 3;
+System.out.println("Class:[ Mage ] ! (" + Class + ")");
+}    else if (this instanceof Palladin){
+Class = 4;
+System.out.println("Class:[ Palladin ] ! (" + Class + ")");
+}    else if (this instanceof Warrior){
+Class = 5;
+System.out.println("Class:[ Warrior ] ! (" + Class + ")");
+}    else{
+    level.addObject(new hunter(), 512, 389);
+
+               Class = 1;
+               System.out.println("Assigning Default Class:[ Hunter ] ! (" + Class + ")");
+            }        
+    
+    
+    if (dirtyFlag_Player_Input){
             //this is for the start of the entire code, adds first confirmation message (class selection)
             if (dirtyFlag_PI_Msg1){
             
             System.out.println("--- CLASS SELECTION ---");
+            
             System.out.println("Choose your desired class!");
+            
             System.out.println("key 1:" + " Hunter");
+            
             System.out.println("key 2:" + " Druid");
+            
             System.out.println("key 3:" + " Mage");
+            
             System.out.println("key 4:" + " Palladin");
+            
             System.out.println("key 5:" + " Warrior");
             
             dirtyFlag_PI_Msg1 = false;
@@ -69,7 +109,7 @@ public class Player extends Actor
         if ((Greenfoot.isKeyDown ("1")) && !(dirtyFlag_PI_Class_Confirmation_Msg) && !(Class == 1) && !(playerClass_dirtyFlag)){
             
                if (!(this instanceof hunter)){
-
+               level.removeObject(this);
                level.addObject(new hunter(), 512, 389);
                level.addObject(new Smoke_Effect(), 512, 389);
                Class = 1;
@@ -82,7 +122,7 @@ public class Player extends Actor
         if ((Greenfoot.isKeyDown ("2")) && !(dirtyFlag_PI_Class_Confirmation_Msg) && !(Class == 2) && !(playerClass_dirtyFlag)){ 
         
                if (!(this instanceof Druid)){
-
+      
                level.addObject(new Druid(), 512, 389);
                level.addObject(new Smoke_Effect(), 512, 389);
                Class = 2;
@@ -124,8 +164,8 @@ public class Player extends Actor
 
                level.addObject(new Warrior(), 512, 389);
                level.addObject(new Smoke_Effect(), 512, 389);
-               System.out.println("You have chosen the [ Warrior ] ! (" + Class + ")");
                Class = 5;
+               System.out.println("You have chosen the [ Warrior ] ! (" + Class + ")");
                playerClass_dirtyFlag = true;
         }             
             
@@ -138,25 +178,13 @@ public class Player extends Actor
         
         dirtyFlagMovement = false;
 
-        background level = (background)this.getWorld();
-        if (this instanceof hunter){
-            Class = 1;
-        }else if (this instanceof Druid){
-            Class = 2;
-        }else if (this instanceof Mage){
-            Class = 3;
-        }else if (this instanceof Palladin){
-            Class = 4;
-        }else if (this instanceof Warrior){
-            Class = 5;
-        }
-        
         int hero_x_px = -level.pos_x + getX();
         int hero_y_px = -level.pos_y + getY();
         int hero_x = hero_x_px/96;
         int hero_y = hero_y_px/96;
         int music = level.track_num;
-                
+
+        
 //start of movement        
   if (Greenfoot.isKeyDown ("left")){
        dirtyFlagMovement = true;
