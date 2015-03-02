@@ -27,9 +27,7 @@ public class Player extends Actor
     
     String lastWayFacing = "down";
     
-    boolean dirtyFlag_Player_Input = true;
-    
-    boolean dirtyFlag_PI_Msg1 = true;
+    boolean dirtyFlag_Player_Input = false;
     
     boolean dirtyFlag_PI_Class_Confirmation_Msg = false;
     
@@ -39,44 +37,20 @@ public class Player extends Actor
     
     boolean playerClass_dirtyFlag = false;
     
+    boolean dirtyFlag_PI_Msg1 = false;
+    
     int whichWalk = 0;
     
     int Confirmation_Msg_Type;
     
     int Class = 4;
     
-    public void act() 
+    public Player()
     {
-    background level = (background)this.getWorld();
-//    if (!(this instanceof hunter))
-//-----------------------------------------------------
-    if (this instanceof hunter){ 
-Class = 1;
-System.out.println("Class:[ Hunter ] ! (" + Class + ")");
-
-}    else if (this instanceof Druid){
-Class = 2;
-System.out.println("Class:[ Druid ] ! (" + Class + ")");
-}    else if (this instanceof Mage){
-Class = 3;
-System.out.println("Class:[ Mage ] ! (" + Class + ")");
-}    else if (this instanceof Palladin){
-Class = 4;
-System.out.println("Class:[ Palladin ] ! (" + Class + ")");
-}    else if (this instanceof Warrior){
-Class = 5;
-System.out.println("Class:[ Warrior ] ! (" + Class + ")");
-}    else{
-    level.addObject(new hunter(), 512, 389);
-
-               Class = 1;
-               System.out.println("Assigning Default Class:[ Hunter ] ! (" + Class + ")");
-            }        
-    
-    
-    if (dirtyFlag_Player_Input){
-            //this is for the start of the entire code, adds first confirmation message (class selection)
-            if (dirtyFlag_PI_Msg1){
+        
+        dirtyFlag_PI_Msg1 = true;
+        
+        if (dirtyFlag_PI_Msg1){
             
             System.out.println("--- CLASS SELECTION ---");
             
@@ -94,58 +68,88 @@ System.out.println("Class:[ Warrior ] ! (" + Class + ")");
             
             dirtyFlag_PI_Msg1 = false;
             
-        } 
-        if (this instanceof hunter){
-            Class = 1;
-        }else if (this instanceof Druid){
-            Class = 2;
-        }else if (this instanceof Mage){
-            Class = 3;
-        }else if (this instanceof Palladin){
-            Class = 4;
-        }else if (this instanceof Warrior){
-            Class = 5;
         }
+        
+        
+        
+    }
+    
+    
+    public void act() 
+    {
+    background level = (background)this.getWorld();
+//    if (!(this instanceof hunter))
+//-----------------------------------------------------
+//    if (this instanceof hunter){ 
+//Class = 1;
+//System.out.println("Class:[ Hunter ] ! (" + Class + ")");
+
+//}    else if (this instanceof Druid){
+//Class = 2;
+//System.out.println("Class:[ Druid ] ! (" + Class + ")");
+//}    else if (this instanceof Mage){
+//Class = 3;
+//System.out.println("Class:[ Mage ] ! (" + Class + ")");
+//}    else if (this instanceof Palladin){
+//Class = 4;
+//System.out.println("Class:[ Palladin ] ! (" + Class + ")");
+//}    else if (this instanceof Warrior){
+//Class = 5;
+//System.out.println("Class:[ Warrior ] ! (" + Class + ")");
+//}    else{
+//    level.addObject(new hunter(), 512, 389);
+//
+//               Class = 1;
+//               System.out.println("Assigning Default Class:[ Hunter ] ! (" + Class + ")");
+//            }        
+    if (dirtyFlag_Player_Input){
+            //this is for the start of the entire code, adds first confirmation message (class selection)
         if ((Greenfoot.isKeyDown ("1")) && !(dirtyFlag_PI_Class_Confirmation_Msg) && !(Class == 1) && !(playerClass_dirtyFlag)){
             
                if (!(this instanceof hunter)){
-               level.removeObject(this);
+
                level.addObject(new hunter(), 512, 389);
                level.addObject(new Smoke_Effect(), 512, 389);
                Class = 1;
                System.out.println("You have chosen the [ Hunter ] ! (" + Class + ")");
                playerClass_dirtyFlag = true;
+               dirtyFlag_Player_Input = false;
         }              
       
-    }
+    
         
-        if ((Greenfoot.isKeyDown ("2")) && !(dirtyFlag_PI_Class_Confirmation_Msg) && !(Class == 2) && !(playerClass_dirtyFlag)){ 
+    }
+    else if ((Greenfoot.isKeyDown ("2")) && !(dirtyFlag_PI_Class_Confirmation_Msg) && !(Class == 2) && !(playerClass_dirtyFlag)){ 
         
                if (!(this instanceof Druid)){
-      
+
                level.addObject(new Druid(), 512, 389);
                level.addObject(new Smoke_Effect(), 512, 389);
                Class = 2;
                System.out.println("You have chosen the [ Druid ] ! (" + Class + ")");
                playerClass_dirtyFlag = true;
+               dirtyFlag_Player_Input = false;
         }
       
-    }       
+           
         
-        if ((Greenfoot.isKeyDown ("3")) && !(dirtyFlag_PI_Class_Confirmation_Msg) && !(Class == 1) && !(playerClass_dirtyFlag)){ 
+    }
+    else if ((Greenfoot.isKeyDown ("3")) && !(dirtyFlag_PI_Class_Confirmation_Msg) && !(Class == 1) && !(playerClass_dirtyFlag)){ 
              
                if (!(this instanceof Mage)){
- 
+
                level.addObject(new Mage(), 512, 389);
                level.addObject(new Smoke_Effect(), 512, 389);
                Class = 3;
                System.out.println("You have chosen the [ Mage ] ! (" + Class + ")");
                playerClass_dirtyFlag = true;
+               dirtyFlag_Player_Input = false;
         }       
             
-    }        
+            
         
-        if ((Greenfoot.isKeyDown ("4")) && !(dirtyFlag_PI_Class_Confirmation_Msg) && !(Class == 1) && !(playerClass_dirtyFlag)){          
+    }
+    else if ((Greenfoot.isKeyDown ("4")) && !(dirtyFlag_PI_Class_Confirmation_Msg) && !(Class == 1) && !(playerClass_dirtyFlag)){          
         
                if (!(this instanceof Palladin)){
 
@@ -154,11 +158,13 @@ System.out.println("Class:[ Warrior ] ! (" + Class + ")");
                Class = 4;
                System.out.println("You have chosen the [ Palladin ] ! (" + Class + ")");
                playerClass_dirtyFlag = true;
+               dirtyFlag_Player_Input = false;
         }      
     
-    }
+    
         
-        if ((Greenfoot.isKeyDown ("5")) && !(dirtyFlag_PI_Class_Confirmation_Msg) && !(Class == 1) && !(playerClass_dirtyFlag)){         
+    }
+    else if ((Greenfoot.isKeyDown ("5")) && !(dirtyFlag_PI_Class_Confirmation_Msg) && !(Class == 1) && !(playerClass_dirtyFlag)){         
      
                if (!(this instanceof Warrior)){
 
@@ -167,6 +173,7 @@ System.out.println("Class:[ Warrior ] ! (" + Class + ")");
                Class = 5;
                System.out.println("You have chosen the [ Warrior ] ! (" + Class + ")");
                playerClass_dirtyFlag = true;
+               dirtyFlag_Player_Input = false;
         }             
             
     }

@@ -9,6 +9,9 @@ public class background extends World
     int width = 39;
     int height = 39;
     int track_num = 1;
+    
+    boolean dirtyFlag_PI_Msg1 = true;
+    
       GreenfootSound music;
       
       
@@ -31,6 +34,7 @@ public class background extends World
         
        // addObject(new Level_1(), 600, -9000);
     }
+    
     public void scroll(int dx, int dy)
     {
        pos_x = pos_x + dx;
@@ -41,6 +45,7 @@ public class background extends World
         
         
     }
+    
     public int getTileAt(int x, int y){
         int i = x + width * y;
         return hit_tiles[i];
