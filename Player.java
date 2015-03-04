@@ -1,6 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.Date; // (This plugin is for telling your Current Universal Time)
-public class Player extends Actor
+public class Player
 {
     String baseString = "";
     String left1;
@@ -27,7 +27,7 @@ public class Player extends Actor
     
     String lastWayFacing = "down";
     
-    boolean dirtyFlag_Player_Input = false;
+
     
     boolean dirtyFlag_PI_Class_Confirmation_Msg = false;
     
@@ -35,49 +35,13 @@ public class Player extends Actor
     
     boolean dirtyFlagBlacksmith = false;
     
-    boolean playerClass_dirtyFlag = false;
-    
-    boolean dirtyFlag_PI_Msg1 = false;
-    
     int whichWalk = 0;
     
     int Confirmation_Msg_Type;
     
     int Class = 4;
-    
-    public Player()
-    {
-        
-        dirtyFlag_PI_Msg1 = true;
-        
-        if (dirtyFlag_PI_Msg1){
-            
-            System.out.println("--- CLASS SELECTION ---");
-            
-            System.out.println("Choose your desired class!");
-            
-            System.out.println("key 1:" + " Hunter");
-            
-            System.out.println("key 2:" + " Druid");
-            
-            System.out.println("key 3:" + " Mage");
-            
-            System.out.println("key 4:" + " Palladin");
-            
-            System.out.println("key 5:" + " Warrior");
-            
-            dirtyFlag_PI_Msg1 = false;
-            
-        }
-        
-        
-        
-    }
-    
-    
     public void act() 
     {
-    background level = (background)this.getWorld();
 //    if (!(this instanceof hunter))
 //-----------------------------------------------------
 //    if (this instanceof hunter){ 
@@ -104,25 +68,26 @@ public class Player extends Actor
 //            }        
     if (dirtyFlag_Player_Input){
             //this is for the start of the entire code, adds first confirmation message (class selection)
+
         if ((Greenfoot.isKeyDown ("1")) && !(dirtyFlag_PI_Class_Confirmation_Msg) && !(Class == 1) && !(playerClass_dirtyFlag)){
             
                if (!(this instanceof hunter)){
-
+               level.removeObject(this);
                level.addObject(new hunter(), 512, 389);
                level.addObject(new Smoke_Effect(), 512, 389);
                Class = 1;
                System.out.println("You have chosen the [ Hunter ] ! (" + Class + ")");
-               playerClass_dirtyFlag = true;
-               dirtyFlag_Player_Input = false;
+               //playerClass_dirtyFlag = true;
+               //dirtyFlag_Player_Input = false;
         }              
       
     
         
     }
-    else if ((Greenfoot.isKeyDown ("2")) && !(dirtyFlag_PI_Class_Confirmation_Msg) && !(Class == 2) && !(playerClass_dirtyFlag)){ 
+    if ((Greenfoot.isKeyDown ("2")) && !(dirtyFlag_PI_Class_Confirmation_Msg) && !(Class == 2) && !(playerClass_dirtyFlag)){ 
         
                if (!(this instanceof Druid)){
-
+               level.removeObject(this);
                level.addObject(new Druid(), 512, 389);
                level.addObject(new Smoke_Effect(), 512, 389);
                Class = 2;
@@ -134,10 +99,10 @@ public class Player extends Actor
            
         
     }
-    else if ((Greenfoot.isKeyDown ("3")) && !(dirtyFlag_PI_Class_Confirmation_Msg) && !(Class == 1) && !(playerClass_dirtyFlag)){ 
+    if ((Greenfoot.isKeyDown ("3")) && !(dirtyFlag_PI_Class_Confirmation_Msg) && !(Class == 1) && !(playerClass_dirtyFlag)){ 
              
                if (!(this instanceof Mage)){
-
+               level.removeObject(this);
                level.addObject(new Mage(), 512, 389);
                level.addObject(new Smoke_Effect(), 512, 389);
                Class = 3;
@@ -149,10 +114,10 @@ public class Player extends Actor
             
         
     }
-    else if ((Greenfoot.isKeyDown ("4")) && !(dirtyFlag_PI_Class_Confirmation_Msg) && !(Class == 1) && !(playerClass_dirtyFlag)){          
+    if ((Greenfoot.isKeyDown ("4")) && !(dirtyFlag_PI_Class_Confirmation_Msg) && !(Class == 1) && !(playerClass_dirtyFlag)){          
         
                if (!(this instanceof Palladin)){
-
+               level.removeObject(this);
                level.addObject(new Palladin(), 512, 389);
                level.addObject(new Smoke_Effect(), 512, 389);
                Class = 4;
@@ -164,10 +129,10 @@ public class Player extends Actor
     
         
     }
-    else if ((Greenfoot.isKeyDown ("5")) && !(dirtyFlag_PI_Class_Confirmation_Msg) && !(Class == 1) && !(playerClass_dirtyFlag)){         
+    if ((Greenfoot.isKeyDown ("5")) && !(dirtyFlag_PI_Class_Confirmation_Msg) && !(Class == 1) && !(playerClass_dirtyFlag)){         
      
                if (!(this instanceof Warrior)){
-
+               level.removeObject(this);
                level.addObject(new Warrior(), 512, 389);
                level.addObject(new Smoke_Effect(), 512, 389);
                Class = 5;

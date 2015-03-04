@@ -10,8 +10,6 @@ public class background extends World
     int height = 39;
     int track_num = 1;
     
-    boolean dirtyFlag_PI_Msg1 = true;
-    
       GreenfootSound music;
       
       
@@ -28,8 +26,10 @@ public class background extends World
         
         System.out.println("Start of Background Fuction!: " + d);
         
-        addObject(new hunter(), 512, 389);
+        addObject(new message(), 512, 389);
         
+        addObject(new hunter(), 512, 389);
+       
         music = new GreenfootSound("043 - Silent Ground.wav");
         
        // addObject(new Level_1(), 600, -9000);
