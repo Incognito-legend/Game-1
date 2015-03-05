@@ -1,6 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.Date; // (This plugin is for telling your Current Universal Time)
-public class Player
+public class Player extends Actor
 {
     String baseString = "";
     String left1;
@@ -24,7 +24,7 @@ public class Player
 //--------------------------------------
     String Home_Confirmation_Msg;
 // {[( end )]} of String group: "int Confirmation_Msg Group".
-    
+
     String lastWayFacing = "down";
     
 
@@ -39,34 +39,13 @@ public class Player
     
     int Confirmation_Msg_Type;
     
-    int Class = 4;
-    public void act() 
-    {
-//    if (!(this instanceof hunter))
-//-----------------------------------------------------
-//    if (this instanceof hunter){ 
-//Class = 1;
-//System.out.println("Class:[ Hunter ] ! (" + Class + ")");
 
-//}    else if (this instanceof Druid){
-//Class = 2;
-//System.out.println("Class:[ Druid ] ! (" + Class + ")");
-//}    else if (this instanceof Mage){
-//Class = 3;
-//System.out.println("Class:[ Mage ] ! (" + Class + ")");
-//}    else if (this instanceof Palladin){
-//Class = 4;
-//System.out.println("Class:[ Palladin ] ! (" + Class + ")");
-//}    else if (this instanceof Warrior){
-//Class = 5;
-//System.out.println("Class:[ Warrior ] ! (" + Class + ")");
-//}    else{
-//    level.addObject(new hunter(), 512, 389);
-//
-//               Class = 1;
-//               System.out.println("Assigning Default Class:[ Hunter ] ! (" + Class + ")");
-//            }        
-    if (dirtyFlag_Player_Input){
+    
+    public void act()
+{
+    boolean tempVar;
+    tempVar = message.getDirtyFlag_Player_Input();
+    if (message.setDirtyFlag_Player_Input()){
             //this is for the start of the entire code, adds first confirmation message (class selection)
 
         if ((Greenfoot.isKeyDown ("1")) && !(dirtyFlag_PI_Class_Confirmation_Msg) && !(Class == 1) && !(playerClass_dirtyFlag)){
@@ -145,6 +124,31 @@ public class Player
     
      
 }
+//    if (!(this instanceof hunter))
+//-----------------------------------------------------
+//    if (this instanceof hunter){ 
+//Class = 1;
+//System.out.println("Class:[ Hunter ] ! (" + Class + ")");
+
+//}    else if (this instanceof Druid){
+//Class = 2;
+//System.out.println("Class:[ Druid ] ! (" + Class + ")");
+//}    else if (this instanceof Mage){
+//Class = 3;
+//System.out.println("Class:[ Mage ] ! (" + Class + ")");
+//}    else if (this instanceof Palladin){
+//Class = 4;
+//System.out.println("Class:[ Palladin ] ! (" + Class + ")");
+//}    else if (this instanceof Warrior){
+//Class = 5;
+//System.out.println("Class:[ Warrior ] ! (" + Class + ")");
+//}    else{
+//    level.addObject(new hunter(), 512, 389);
+//
+//               Class = 1;
+//               System.out.println("Assigning Default Class:[ Hunter ] ! (" + Class + ")");
+//            }        
+    
 
         else if (!(dirtyFlag_Player_Input)){
         
