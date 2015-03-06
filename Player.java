@@ -39,13 +39,14 @@ public class Player extends Actor
     
     int Confirmation_Msg_Type;
     
-
+    boolean tempVar = message.getDirtyFlag_Player_Input();
+    
+    
     
     public void act()
 {
-    boolean tempVar;
-    tempVar = message.getDirtyFlag_Player_Input();
-    if (message.setDirtyFlag_Player_Input()){
+  
+    if (setDirtyFlag_Player_Input()){
             //this is for the start of the entire code, adds first confirmation message (class selection)
 
         if ((Greenfoot.isKeyDown ("1")) && !(dirtyFlag_PI_Class_Confirmation_Msg) && !(Class == 1) && !(playerClass_dirtyFlag)){
