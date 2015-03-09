@@ -35,24 +35,26 @@ public class Player extends Actor
     
     boolean dirtyFlagBlacksmith = false;
     
+    boolean dirtyFlag_Player_Input = true;
+    
+    boolean playerClass_dirtyFlag = false;
+    
+    int Class = 4;
+    
     int whichWalk = 0;
     
     int Confirmation_Msg_Type;
     
-    boolean tempVar = message.getDirtyFlag_Player_Input();
-    
-    
-    
     public void act()
 {
   
-    if (setDirtyFlag_Player_Input()){
+    if (dirtyFlag_Player_Input){
             //this is for the start of the entire code, adds first confirmation message (class selection)
 
         if ((Greenfoot.isKeyDown ("1")) && !(dirtyFlag_PI_Class_Confirmation_Msg) && !(Class == 1) && !(playerClass_dirtyFlag)){
             
                if (!(this instanceof hunter)){
-               level.removeObject(this);
+               removeObject(this);
                level.addObject(new hunter(), 512, 389);
                level.addObject(new Smoke_Effect(), 512, 389);
                Class = 1;

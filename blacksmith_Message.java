@@ -5,7 +5,7 @@ public class blacksmith_Message extends Player
 {
     public blacksmith_Message() {
     
-    Blacksmith_Confirmation_Msg = "true";
+    Blacksmith_Confirmation_Msg = true;
     
     }    
 }
