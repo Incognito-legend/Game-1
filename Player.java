@@ -49,18 +49,17 @@ public class Player extends Actor
 {
   
     if (dirtyFlag_Player_Input){
-            //this is for the start of the entire code, adds first confirmation message (class selection)
-
+       background level = (background)this.getWorld();
         if ((Greenfoot.isKeyDown ("1")) && !(dirtyFlag_PI_Class_Confirmation_Msg) && !(Class == 1) && !(playerClass_dirtyFlag)){
             
                if (!(this instanceof hunter)){
-               removeObject(this);
+               level.removeObject(this);
                level.addObject(new hunter(), 512, 389);
                level.addObject(new Smoke_Effect(), 512, 389);
                Class = 1;
                System.out.println("You have chosen the [ Hunter ] ! (" + Class + ")");
-               //playerClass_dirtyFlag = true;
-               //dirtyFlag_Player_Input = false;
+               playerClass_dirtyFlag = true;
+               dirtyFlag_Player_Input = false;
         }              
       
     
@@ -154,7 +153,7 @@ public class Player extends Actor
     
 
         else if (!(dirtyFlag_Player_Input)){
-        
+        background level = (background)this.getWorld();
         dirtyFlagMovement = false;
 
         int hero_x_px = -level.pos_x + getX();

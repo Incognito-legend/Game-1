@@ -25,10 +25,8 @@ public class background extends World
         Date d = new Date();
         
         System.out.println("Start of Background Fuction!: " + d);
-        
-        addObject(new message(), 512, 389);
-        
-        addObject(new hunter(), 512, 389);
+
+        addObject(new null_class(), 512, 389);
        
         music = new GreenfootSound("043 - Silent Ground.wav");
         
