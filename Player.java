@@ -45,7 +45,7 @@ public class Player extends Actor
     
     int Confirmation_Msg_Type;
     
-    public void act()
+    public Player()
 {
   
     if (dirtyFlag_Player_Input){
@@ -380,10 +380,7 @@ public class Player extends Actor
           }
           
         }
-        
-
-    
-    if (!level.music.isPlaying()) {
+        if (!level.music.isPlaying()) {
         level.track_num++;
         
         if(level.track_num > 100) {

@@ -3,7 +3,7 @@ import greenfoot.*;
 public class Druid extends Player
 {
     public Druid() {
-    
+     
      left1 = baseString + "sprite classes - Druid - left - p1.png";
      left2 = baseString + "sprite classes - Druid - left - p2.png";
      left3 = baseString + "sprite classes - Druid - left - p3.png";

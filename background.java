@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.Date;
+import java.util.List;
 public class background extends World
 {
     GreenfootImage largeImage = new GreenfootImage("map-2.png");
@@ -9,8 +10,7 @@ public class background extends World
     int width = 39;
     int height = 39;
     int track_num = 1;
-    
-      GreenfootSound music;
+    GreenfootSound music;
       
       
     public background()
@@ -25,8 +25,6 @@ public class background extends World
         Date d = new Date();
         
         System.out.println("Start of Background Fuction!: " + d);
-
-        addObject(new null_class(), 512, 389);
        
         music = new GreenfootSound("043 - Silent Ground.wav");
         
@@ -50,5 +48,5 @@ public class background extends World
         
 
     }
-   
+    
 }

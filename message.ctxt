@@ -1,20 +1,4 @@
 #BlueJ class context
 comment0.params=savedPlayerClass\ savedPlayerVarClass_dirtyFlag\ savedDirtyFlag_Player_Input\ savedDirtyFlag_PI_Msg1
 comment0.target=message(int,\ boolean,\ boolean,\ boolean)
-comment1.params=
-comment1.target=int\ getPlayerClass()
-comment2.params=inValue
-comment2.target=void\ setPlayerClass(int)
-comment3.params=
-comment3.target=boolean\ getPlayerVarClass_dirtyFlag()
-comment4.params=inValue
-comment4.target=void\ setPlayerClass_dirtyFlag(boolean)
-comment5.params=
-comment5.target=boolean\ getDirtyFlag_Player_Input()
-comment6.params=inValue
-comment6.target=void\ setDirtyFlag_Player_Input(boolean)
-comment7.params=
-comment7.target=boolean\ getDirtyFlag_PI_Msg1()
-comment8.params=inValue
-comment8.target=void\ setDirtyFlag_PI_Msg1(boolean)
-numComments=9
+numComments=1
