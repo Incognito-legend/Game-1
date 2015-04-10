@@ -4,7 +4,7 @@
   <image source="femat.png" width="426" height="681"/>
  </tileset>
  <tileset firstgid="1001" name="hit-tiles" tilewidth="16" tileheight="16">
-  <image source="hit-tiles.png" width="176" height="16"/>
+  <image source="hit-tiles.png" width="192" height="16"/>
   <tile id="0">
    <properties>
     <property name="wall" value="1001"/>
@@ -63,7 +63,7 @@
  </tileset>
  <layer name="Tile Layer 1" width="39" height="39">
   <data encoding="base64" compression="zlib">
-   eJztlFkOgCAMREm8/0FxXy7gLzYsIgM2Oh8vMpHQpyW1nTGWEEKIWhaRV5E3kXeRj0pevQMi13IrhW7hWi3dQrVL93zd7Ul/eN+ucypV2+cin39y0zrfctxz+qDV7a35gvwOpFtrr8FZjzdqzs67ybMX/W9iZ4dmhm+NdEPOD2RPUQ4t7r88O9brVCaEEKKPE7Qve5g=
+   eJztlFkOgCAMREm8/0HBXS/gb20gsrTY6Hy8yARCn6GpH5zzAAAAzLKyvLG8s3ywfCp5BYJE1nJrBW7pWj3dUrVbz3zdreZ90G/3OfVUO+bCv39yszrfStxL3sGq21vzRfI/JN2seNXUlPYayXrKcFvI3hw5p9lPFmaJlEOPPuN3h8w9jT4DAAAgzwWND3uU
   </data>
  </layer>
 </map>
