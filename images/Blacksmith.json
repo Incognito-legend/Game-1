@@ -21,7 +21,11 @@
  "tilesets":[
         {
          "firstgid":1,
+<<<<<<< HEAD
          "image":"..\/..\/Game-1\/images\/femat.png",
+=======
+         "image":"femat.png",
+>>>>>>> origin/master
          "imageheight":681,
          "imagewidth":426,
          "margin":2,
@@ -36,7 +40,11 @@
         }, 
         {
          "firstgid":1001,
+<<<<<<< HEAD
          "image":"..\/..\/Game-1\/images\/hit-tiles.png",
+=======
+         "image":"hit-tiles.png",
+>>>>>>> origin/master
          "imageheight":16,
          "imagewidth":192,
          "margin":0,

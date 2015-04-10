@@ -2,8 +2,12 @@
 class.AI.superclass=greenfoot.Actor
 class.Arena.superclass=Building_Tile
 class.Blacksmith.superclass=Building_Tile
+<<<<<<< HEAD
 class.Blacksmith_Room.superclass=greenfoot.Actor
 class.Building_Tile.superclass=AI
+=======
+class.Building_Tile.superclass=Player
+>>>>>>> origin/master
 class.Druid.superclass=Player
 class.Home.superclass=Building_Tile
 class.Level.superclass=greenfoot.Actor
@@ -15,9 +19,12 @@ class.Player.superclass=greenfoot.Actor
 class.Shop.superclass=Building_Tile
 class.SimpleTimer.superclass=
 class.Smoke_Effect.superclass=Player
+class.Variables.superclass=Player
 class.Warrior.superclass=Player
 class.background.superclass=greenfoot.World
+class.blacksmith_Message.superclass=Player
 class.hunter.superclass=Player
+class.message.superclass=Player
 dependency1.from=Player
 dependency1.to=background
 dependency1.type=UsesDependency
@@ -27,9 +34,51 @@ dependency10.type=UsesDependency
 dependency11.from=Building_Tile
 dependency11.to=background
 dependency11.type=UsesDependency
+<<<<<<< HEAD
+=======
+dependency12.from=Player
+dependency12.to=blacksmith_Message
+dependency12.type=UsesDependency
+dependency13.from=Player
+dependency13.to=Level
+dependency13.type=UsesDependency
+dependency14.from=background
+dependency14.to=Variables
+dependency14.type=UsesDependency
+dependency15.from=background
+dependency15.to=Player
+dependency15.type=UsesDependency
+dependency16.from=background
+dependency16.to=hunter
+dependency16.type=UsesDependency
+dependency17.from=background
+dependency17.to=message
+dependency17.type=UsesDependency
+dependency18.from=Player
+dependency18.to=message
+dependency18.type=UsesDependency
+dependency19.from=Druid
+dependency19.to=background
+dependency19.type=UsesDependency
+>>>>>>> origin/master
 dependency2.from=Player
 dependency2.to=hunter
 dependency2.type=UsesDependency
+dependency20.from=Druid
+dependency20.to=hunter
+dependency20.type=UsesDependency
+dependency21.from=Druid
+dependency21.to=Smoke_Effect
+dependency21.type=UsesDependency
+dependency22.from=Druid
+dependency22.to=Mage
+dependency22.type=UsesDependency
+dependency23.from=Druid
+dependency23.to=Palladin
+dependency23.type=UsesDependency
+dependency24.from=Druid
+dependency24.to=Warrior
+dependency24.type=UsesDependency
 dependency3.from=Player
 dependency3.to=Smoke_Effect
 dependency3.type=UsesDependency
@@ -52,43 +101,68 @@ dependency9.from=Smoke_Effect
 dependency9.to=background
 dependency9.type=UsesDependency
 mainWindow.height=860
+<<<<<<< HEAD
 mainWindow.width=856
 mainWindow.x=0
 mainWindow.y=0
 package.numDependencies=11
+=======
+mainWindow.width=871
+mainWindow.x=0
+mainWindow.y=0
+package.numDependencies=24
+>>>>>>> origin/master
 package.numTargets=19
 project.charset=UTF-8
 simulation.speed=44
 target1.editor.height=700
 target1.editor.width=900
+<<<<<<< HEAD
 target1.editor.x=0
 target1.editor.y=118
+=======
+target1.editor.x=50
+target1.editor.y=40
+>>>>>>> origin/master
 target1.height=50
-target1.name=Smoke_Effect
+target1.name=Variables
 target1.naviview.expanded=true
 target1.showInterface=false
 target1.type=ClassTarget
 target1.typeParameters=
-target1.width=100
-target1.x=160
-target1.y=70
-target10.editor.height=700
-target10.editor.width=900
-target10.editor.x=40
-target10.editor.y=20
+target1.width=80
+target1.x=170
+target1.y=430
+target10.editor.height=693
+target10.editor.width=1045
+target10.editor.x=169
+target10.editor.y=64
 target10.height=50
+<<<<<<< HEAD
 target10.name=Level_1
+=======
+target10.name=message
+>>>>>>> origin/master
 target10.naviview.expanded=true
 target10.showInterface=false
 target10.type=ClassTarget
 target10.typeParameters=
 target10.width=80
+<<<<<<< HEAD
 target10.x=190
 target10.y=250
 target11.editor.height=876
 target11.editor.width=1456
 target11.editor.x=-8
 target11.editor.y=-8
+=======
+target10.x=10
+target10.y=490
+target11.editor.height=700
+target11.editor.width=900
+target11.editor.x=321
+target11.editor.y=56
+>>>>>>> origin/master
 target11.height=50
 target11.name=hunter
 target11.naviview.expanded=true
@@ -98,10 +172,17 @@ target11.typeParameters=
 target11.width=80
 target11.x=70
 target11.y=70
+<<<<<<< HEAD
 target12.editor.height=876
 target12.editor.width=1456
 target12.editor.x=-4
 target12.editor.y=25
+=======
+target12.editor.height=700
+target12.editor.width=900
+target12.editor.x=-64
+target12.editor.y=38
+>>>>>>> origin/master
 target12.height=50
 target12.name=Palladin
 target12.naviview.expanded=true
@@ -111,10 +192,17 @@ target12.typeParameters=
 target12.width=80
 target12.x=140
 target12.y=10
+<<<<<<< HEAD
 target13.editor.height=876
 target13.editor.width=1456
 target13.editor.x=-8
 target13.editor.y=-8
+=======
+target13.editor.height=700
+target13.editor.width=900
+target13.editor.x=40
+target13.editor.y=20
+>>>>>>> origin/master
 target13.height=50
 target13.name=Arena
 target13.naviview.expanded=true
@@ -124,10 +212,17 @@ target13.typeParameters=
 target13.width=80
 target13.x=100
 target13.y=370
+<<<<<<< HEAD
 target14.editor.height=668
 target14.editor.width=1093
 target14.editor.x=244
 target14.editor.y=63
+=======
+target14.editor.height=860
+target14.editor.width=912
+target14.editor.x=394
+target14.editor.y=15
+>>>>>>> origin/master
 target14.height=50
 target14.name=background
 target14.naviview.expanded=true
@@ -139,14 +234,22 @@ target14.x=10
 target14.y=190
 target15.editor.height=700
 target15.editor.width=900
+<<<<<<< HEAD
 target15.editor.x=324
 target15.editor.y=82
 target15.height=50
 target15.name=Level
+=======
+target15.editor.x=25
+target15.editor.y=27
+target15.height=50
+target15.name=blacksmith_Message
+>>>>>>> origin/master
 target15.naviview.expanded=true
 target15.showInterface=false
 target15.type=ClassTarget
 target15.typeParameters=
+<<<<<<< HEAD
 target15.width=80
 target15.x=200
 target15.y=190
@@ -156,17 +259,37 @@ target16.editor.x=40
 target16.editor.y=20
 target16.height=50
 target16.name=AI
+=======
+target15.width=150
+target15.x=10
+target15.y=430
+target16.editor.height=700
+target16.editor.width=900
+target16.editor.x=304
+target16.editor.y=80
+target16.height=50
+target16.name=Level
+>>>>>>> origin/master
 target16.naviview.expanded=true
 target16.showInterface=false
 target16.type=ClassTarget
 target16.typeParameters=
 target16.width=80
+<<<<<<< HEAD
 target16.x=150
 target16.y=430
 target17.editor.height=876
 target17.editor.width=1456
 target17.editor.x=-8
 target17.editor.y=-8
+=======
+target16.x=200
+target16.y=190
+target17.editor.height=700
+target17.editor.width=900
+target17.editor.x=44
+target17.editor.y=71
+>>>>>>> origin/master
 target17.height=50
 target17.name=Mage
 target17.naviview.expanded=true
@@ -176,10 +299,17 @@ target17.typeParameters=
 target17.width=80
 target17.x=100
 target17.y=250
+<<<<<<< HEAD
 target18.editor.height=876
 target18.editor.width=1456
 target18.editor.x=-8
 target18.editor.y=-8
+=======
+target18.editor.height=700
+target18.editor.width=900
+target18.editor.x=40
+target18.editor.y=20
+>>>>>>> origin/master
 target18.height=50
 target18.name=Warrior
 target18.naviview.expanded=true
@@ -191,8 +321,13 @@ target18.x=10
 target18.y=250
 target19.editor.height=876
 target19.editor.width=1456
+<<<<<<< HEAD
 target19.editor.x=-156
 target19.editor.y=59
+=======
+target19.editor.x=-131
+target19.editor.y=5
+>>>>>>> origin/master
 target19.height=50
 target19.name=Blacksmith
 target19.naviview.expanded=false
@@ -204,15 +339,23 @@ target19.x=120
 target19.y=310
 target2.editor.height=700
 target2.editor.width=900
+<<<<<<< HEAD
 target2.editor.x=0
 target2.editor.y=118
 target2.height=50
 target2.name=SimpleTimer
+=======
+target2.editor.x=124
+target2.editor.y=163
+target2.height=50
+target2.name=Smoke_Effect
+>>>>>>> origin/master
 target2.naviview.expanded=true
 target2.showInterface=false
 target2.type=ClassTarget
 target2.typeParameters=
 target2.width=100
+<<<<<<< HEAD
 target2.x=100
 target2.y=490
 target3.editor.height=700
@@ -221,10 +364,34 @@ target3.editor.x=0
 target3.editor.y=118
 target3.height=50
 target3.name=Blacksmith_Room
+=======
+target2.x=160
+target2.y=70
+target20.editor.height=876
+target20.editor.width=1456
+target20.editor.x=-57
+target20.editor.y=289
+target20.height=50
+target20.name=Blacksmith
+target20.naviview.expanded=false
+target20.showInterface=false
+target20.type=ClassTarget
+target20.typeParameters=
+target20.width=90
+target20.x=120
+target20.y=310
+target3.editor.height=876
+target3.editor.width=1456
+target3.editor.x=-8
+target3.editor.y=-8
+target3.height=50
+target3.name=Home
+>>>>>>> origin/master
 target3.naviview.expanded=true
 target3.showInterface=false
 target3.type=ClassTarget
 target3.typeParameters=
+<<<<<<< HEAD
 target3.width=130
 target3.x=10
 target3.y=430
@@ -234,10 +401,22 @@ target4.editor.x=-8
 target4.editor.y=-8
 target4.height=50
 target4.name=Home
+=======
+target3.width=80
+target3.x=190
+target3.y=370
+target4.editor.height=700
+target4.editor.width=900
+target4.editor.x=115
+target4.editor.y=197
+target4.height=50
+target4.name=PLUTO_final_boss
+>>>>>>> origin/master
 target4.naviview.expanded=true
 target4.showInterface=false
 target4.type=ClassTarget
 target4.typeParameters=
+<<<<<<< HEAD
 target4.width=80
 target4.x=190
 target4.y=370
@@ -247,10 +426,22 @@ target5.editor.x=74
 target5.editor.y=359
 target5.height=50
 target5.name=PLUTO_final_boss
+=======
+target4.width=130
+target4.x=10
+target4.y=130
+target5.editor.height=868
+target5.editor.width=1107
+target5.editor.x=398
+target5.editor.y=0
+target5.height=50
+target5.name=Player
+>>>>>>> origin/master
 target5.naviview.expanded=true
 target5.showInterface=false
 target5.type=ClassTarget
 target5.typeParameters=
+<<<<<<< HEAD
 target5.width=130
 target5.x=10
 target5.y=130
@@ -260,10 +451,22 @@ target6.editor.x=-31
 target6.editor.y=22
 target6.height=50
 target6.name=Player
+=======
+target5.width=80
+target5.x=150
+target5.y=130
+target6.editor.height=876
+target6.editor.width=1456
+target6.editor.x=-166
+target6.editor.y=87
+target6.height=50
+target6.name=Building_Tile
+>>>>>>> origin/master
 target6.naviview.expanded=true
 target6.showInterface=false
 target6.type=ClassTarget
 target6.typeParameters=
+<<<<<<< HEAD
 target6.width=80
 target6.x=150
 target6.y=130
@@ -273,10 +476,22 @@ target7.editor.x=69
 target7.editor.y=154
 target7.height=50
 target7.name=Building_Tile
+=======
+target6.width=100
+target6.x=10
+target6.y=310
+target7.editor.height=860
+target7.editor.width=1164
+target7.editor.x=761
+target7.editor.y=311
+target7.height=50
+target7.name=Druid
+>>>>>>> origin/master
 target7.naviview.expanded=true
 target7.showInterface=false
 target7.type=ClassTarget
 target7.typeParameters=
+<<<<<<< HEAD
 target7.width=100
 target7.x=10
 target7.y=310
@@ -286,25 +501,50 @@ target8.editor.x=-8
 target8.editor.y=-8
 target8.height=50
 target8.name=Druid
+=======
+target7.width=80
+target7.x=110
+target7.y=190
+target8.editor.height=700
+target8.editor.width=900
+target8.editor.x=40
+target8.editor.y=20
+target8.height=50
+target8.name=Shop
+>>>>>>> origin/master
 target8.naviview.expanded=true
 target8.showInterface=false
 target8.type=ClassTarget
 target8.typeParameters=
 target8.width=80
+<<<<<<< HEAD
 target8.x=110
 target8.y=190
+=======
+target8.x=10
+target8.y=370
+>>>>>>> origin/master
 target9.editor.height=700
 target9.editor.width=900
 target9.editor.x=40
 target9.editor.y=20
 target9.height=50
+<<<<<<< HEAD
 target9.name=Shop
+=======
+target9.name=Level_1
+>>>>>>> origin/master
 target9.naviview.expanded=true
 target9.showInterface=false
 target9.type=ClassTarget
 target9.typeParameters=
 target9.width=80
+<<<<<<< HEAD
 target9.x=10
 target9.y=370
+=======
+target9.x=190
+target9.y=250
+>>>>>>> origin/master
 version=2.6.0
 world.lastInstantiated=background
